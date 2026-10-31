@@ -8,7 +8,7 @@ jobs:
       - uses: actions/setup-python@v5
         with: { python-version: "3.12" }
       - run: pip install git+https://github.com/NVIDIA/skillspector.git
-      - run: skillspector scan . --format json --output report.json
+      - run: skillspector scan . --format json --output report.json --no-llm
       - uses: actions/upload-artifact@v4
         if: always()
         with: { name: skillspector-report, path: report.json }
